@@ -82,7 +82,7 @@ defineProps<{ activeId?: string }>()
   color: var(--color-on-primary);
 }
 
-@media (min-width: 48rem) {
+@media (min-width: 64rem) {
   .app-header__inner {
     grid-template-columns: 1fr auto 1fr;
   }

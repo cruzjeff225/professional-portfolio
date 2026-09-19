@@ -14,7 +14,7 @@ secciones con contenido placeholder) y después se incorpora la información rea
 | ---- | ---------------------------------------- | --------- |
 | 1    | Análisis y planificación                 | Completa  |
 | 2    | Configuración del proyecto               | Completa  |
-| 3    | Design system (tokens, Light/Dark)       | Pendiente |
+| 3    | Design system (tokens, Light/Dark)       | Completa  |
 | 4    | Componentes reutilizables                | Pendiente |
 | 5    | Estructura de secciones con placeholders | Pendiente |
 | 6    | Responsive, UX y accesibilidad           | Pendiente |
@@ -29,7 +29,9 @@ secciones con contenido placeholder) y después se incorpora la información rea
 - TypeScript en modo estricto
 - [Vite](https://vite.dev/) como bundler
 - CSS con variables (design tokens), sin frameworks de estilos
+- Inter y JetBrains Mono autoalojadas con Fontsource
 - ESLint + Prettier para calidad y formato del código
+- Vitest para pruebas unitarias de la lógica (composables)
 
 ## Requisitos
 
@@ -50,6 +52,7 @@ npm run dev
 | `npm run dev`          | Servidor de desarrollo                      |
 | `npm run build`        | Type-check y build de producción            |
 | `npm run preview`      | Sirve el build de producción localmente     |
+| `npm test`             | Ejecuta las pruebas unitarias con Vitest    |
 | `npm run type-check`   | Verificación de tipos con `vue-tsc`         |
 | `npm run lint`         | Análisis estático con ESLint                |
 | `npm run lint:fix`     | ESLint con correcciones automáticas         |
@@ -85,4 +88,15 @@ src/
 
 ## Próximas fases
 
-Design system con tema Light/Dark, componentes reutilizables y secciones con contenido placeholder.
+Componentes reutilizables (Button, Badge, SectionHeading, navegación) y secciones con contenido
+placeholder.
+
+## Design system
+
+- **Tokens de escala** (tipografía, espaciado, radios, layout, movimiento): `src/styles/tokens.css`.
+- **Tokens semánticos por tema** (colores y sombras): `src/styles/themes.css`. Light y Dark están
+  diseñados por separado y todos los pares de texto cumplen WCAG AA.
+- **Tema**: `useTheme` aplica `data-theme` en `<html>`, respeta `prefers-color-scheme` y persiste la
+  elección en `localStorage`. Un script inline en `index.html` evita el parpadeo inicial.
+- **Breakpoints** (mobile-first): 480, 768, 1024 y 1280 px (documentados en `tokens.css`).
+- Soporte de `prefers-reduced-motion` desde la base de estilos.

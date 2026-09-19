@@ -4,24 +4,25 @@ import AppBadge from '@/components/ui/AppBadge.vue'
 import AppButton from '@/components/ui/AppButton.vue'
 import AppIcon from '@/components/ui/AppIcon.vue'
 import { profile } from '@/data/profile'
+import { vReveal } from '@/directives/reveal'
 </script>
 
 <template>
   <section id="hero" class="hero" aria-labelledby="hero-title">
     <div class="container hero__inner">
       <div class="hero__content">
-        <p class="hero__greeting">Hola, soy</p>
-        <h1 id="hero-title" class="hero__name">{{ profile.name }}</h1>
-        <p class="hero__role">&lt; {{ profile.role }} /&gt;</p>
-        <p class="hero__tagline">{{ profile.tagline }}</p>
+        <p v-reveal="0" class="hero__greeting">Hola, soy</p>
+        <h1 id="hero-title" v-reveal="70" class="hero__name">{{ profile.name }}</h1>
+        <p v-reveal="140" class="hero__role">&lt; {{ profile.role }} /&gt;</p>
+        <p v-reveal="210" class="hero__tagline">{{ profile.tagline }}</p>
 
-        <ul class="hero__highlights" role="list">
+        <ul v-reveal="280" class="hero__highlights" role="list">
           <li v-for="highlight in profile.highlights" :key="highlight">
             <AppBadge>{{ highlight }}</AppBadge>
           </li>
         </ul>
 
-        <div class="hero__actions">
+        <div v-reveal="350" class="hero__actions">
           <AppButton href="#projects">Ver proyectos <AppIcon name="arrow-right" /></AppButton>
           <AppButton variant="secondary" href="#contact">Contactar</AppButton>
         </div>

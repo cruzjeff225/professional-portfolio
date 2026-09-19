@@ -2,6 +2,7 @@
 import SectionContainer from '@/components/layout/SectionContainer.vue'
 import SectionHeading from '@/components/ui/SectionHeading.vue'
 import { profile } from '@/data/profile'
+import { vReveal } from '@/directives/reveal'
 </script>
 
 <template>
@@ -9,11 +10,11 @@ import { profile } from '@/data/profile'
     <SectionHeading id="about-title" eyebrow="01 / Sobre mí" title="Quién soy" />
 
     <div class="about">
-      <div class="about__summary">
+      <div v-reveal class="about__summary">
         <p v-for="paragraph in profile.summary" :key="paragraph">{{ paragraph }}</p>
       </div>
 
-      <dl class="about__facts">
+      <dl v-reveal="100" class="about__facts">
         <div v-for="fact in profile.facts" :key="fact.label" class="about__fact">
           <dt>{{ fact.label }}</dt>
           <dd>{{ fact.value }}</dd>

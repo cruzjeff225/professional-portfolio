@@ -5,6 +5,7 @@ import AppIcon from '@/components/ui/AppIcon.vue'
 import SectionHeading from '@/components/ui/SectionHeading.vue'
 import SocialLinks from '@/components/ui/SocialLinks.vue'
 import { profile } from '@/data/profile'
+import { vReveal } from '@/directives/reveal'
 </script>
 
 <template>
@@ -18,17 +19,19 @@ import { profile } from '@/data/profile'
         :description="profile.contactMessage"
       />
 
-      <AppButton :href="`mailto:${profile.email}`">
-        <AppIcon name="mail" /> {{ profile.email }}
-      </AppButton>
-
-      <SocialLinks :links="profile.socials" />
+      <div v-reveal="80" class="contact__actions">
+        <AppButton :href="`mailto:${profile.email}`">
+          <AppIcon name="mail" /> {{ profile.email }}
+        </AppButton>
+        <SocialLinks :links="profile.socials" />
+      </div>
     </div>
   </SectionContainer>
 </template>
 
 <style scoped>
-.contact {
+.contact,
+.contact__actions {
   display: grid;
   gap: var(--space-8);
   justify-items: center;

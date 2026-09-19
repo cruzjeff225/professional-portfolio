@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { vReveal } from '@/directives/reveal'
+
 withDefaults(
   defineProps<{
     id?: string
@@ -12,7 +14,11 @@ withDefaults(
 </script>
 
 <template>
-  <header class="section-heading" :class="{ 'section-heading--center': align === 'center' }">
+  <header
+    v-reveal
+    class="section-heading"
+    :class="{ 'section-heading--center': align === 'center' }"
+  >
     <p v-if="eyebrow" class="section-heading__eyebrow">{{ eyebrow }}</p>
     <h2 :id="id">{{ title }}</h2>
     <p v-if="description" class="section-heading__description">{{ description }}</p>

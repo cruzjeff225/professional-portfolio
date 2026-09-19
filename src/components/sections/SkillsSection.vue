@@ -3,6 +3,7 @@ import SkillGroup from '@/components/cards/SkillGroup.vue'
 import SectionContainer from '@/components/layout/SectionContainer.vue'
 import SectionHeading from '@/components/ui/SectionHeading.vue'
 import { skillGroups } from '@/data/skills'
+import { vReveal } from '@/directives/reveal'
 </script>
 
 <template>
@@ -15,8 +16,9 @@ import { skillGroups } from '@/data/skills'
 
     <div class="skills">
       <SkillGroup
-        v-for="group in skillGroups"
+        v-for="(group, index) in skillGroups"
         :key="group.id"
+        v-reveal="index * 80"
         :group="group"
         :class="{ skills__featured: group.featured }"
       />

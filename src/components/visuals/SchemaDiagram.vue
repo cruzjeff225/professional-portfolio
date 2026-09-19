@@ -128,9 +128,7 @@ const tables: readonly Table[] = [
 }
 
 .schema__columns {
-  margin: 0;
   padding: 0.35em 0;
-  list-style: none;
 }
 
 .schema__column {

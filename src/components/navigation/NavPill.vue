@@ -9,7 +9,7 @@ defineProps<{
 
 <template>
   <nav class="nav-pill" aria-label="Principal">
-    <ul class="nav-pill__list">
+    <ul class="nav-pill__list" role="list">
       <li v-for="item in items" :key="item.id">
         <a
           class="nav-pill__link"
@@ -34,9 +34,6 @@ defineProps<{
 .nav-pill__list {
   display: flex;
   gap: var(--space-1);
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }
 
 .nav-pill__link {

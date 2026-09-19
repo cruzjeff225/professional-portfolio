@@ -19,9 +19,6 @@ defineProps<{ entries: readonly TimelineEntry[] }>()
 .timeline {
   display: grid;
   gap: var(--space-8);
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }
 
 .timeline__item {

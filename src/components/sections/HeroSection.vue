@@ -79,9 +79,6 @@ import { vReveal } from '@/directives/reveal'
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }
 
 .hero__actions {

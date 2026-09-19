@@ -25,17 +25,14 @@ defineProps<{ links: readonly SocialLink[] }>()
 .social-links {
   display: flex;
   gap: var(--space-2);
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }
 
 .social-links__link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.75rem;
-  height: 2.75rem;
+  width: var(--size-control);
+  height: var(--size-control);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-full);
   color: var(--color-text-muted);

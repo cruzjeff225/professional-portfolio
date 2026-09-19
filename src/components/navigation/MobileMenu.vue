@@ -70,7 +70,7 @@ onBeforeUnmount(() => {
     </IconButton>
 
     <nav v-show="isOpen" :id="panelId" class="mobile-menu__panel" aria-label="Principal">
-      <ul class="mobile-menu__list">
+      <ul role="list">
         <li v-for="item in items" :key="item.id">
           <a
             class="mobile-menu__link"
@@ -96,12 +96,6 @@ onBeforeUnmount(() => {
   padding: var(--space-2) var(--container-padding) var(--space-6);
   border-bottom: 1px solid var(--color-border);
   background-color: var(--color-bg);
-}
-
-.mobile-menu__list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }
 
 .mobile-menu__link {

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { vReveal } from '@/directives/reveal'
+
 interface Column {
   name: string
   type: string
@@ -42,17 +44,18 @@ const tables: readonly Table[] = [
 </script>
 
 <template>
-  <div class="schema" aria-hidden="true">
-    <svg class="schema__lines" viewBox="0 0 100 100" preserveAspectRatio="none">
-      <path d="M29 29 C29 46, 34 46, 42 46" />
-      <path d="M29 71 C29 54, 34 54, 42 54" />
+  <div v-reveal.trigger class="schema" aria-hidden="true">
+    <svg class="schema__lines" viewBox="0 0 100 102">
+      <path pathLength="1" style="--i: 0" d="M29 29.6 C29 46.9, 34 46.9, 42 46.9" />
+      <path pathLength="1" style="--i: 1" d="M29 72.4 C29 55.1, 34 55.1, 42 55.1" />
     </svg>
 
     <div
-      v-for="table in tables"
+      v-for="(table, index) in tables"
       :key="table.id"
       class="schema__table"
       :class="`schema__table--${table.id}`"
+      :style="{ '--i': index }"
     >
       <p class="schema__name">{{ table.name }}</p>
       <ul class="schema__columns">
@@ -82,11 +85,11 @@ const tables: readonly Table[] = [
   height: 100%;
   fill: none;
   stroke: var(--color-border-strong);
-  stroke-width: 1.5;
+  stroke-width: 0.35;
 }
 
 .schema__lines path {
-  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
 }
 
 .schema__table {
@@ -146,5 +149,38 @@ const tables: readonly Table[] = [
 
 .schema__type {
   color: var(--color-text-muted);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .schema[data-reveal='pending'] .schema__table {
+    opacity: 0;
+  }
+
+  .schema[data-reveal='pending'] .schema__lines path {
+    stroke-dashoffset: 1;
+  }
+
+  .schema[data-reveal='visible'] .schema__table {
+    animation: schema-rise var(--duration-slow) var(--ease-out) both;
+    animation-delay: calc(var(--i) * 150ms);
+  }
+
+  .schema[data-reveal='visible'] .schema__lines path {
+    animation: schema-draw 600ms var(--ease-out) both;
+    animation-delay: calc(450ms + var(--i) * 150ms);
+  }
+}
+
+@keyframes schema-rise {
+  from {
+    opacity: 0;
+    transform: translateY(var(--space-3));
+  }
+}
+
+@keyframes schema-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
 }
 </style>

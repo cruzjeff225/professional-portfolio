@@ -2,7 +2,15 @@
   "name": "professional-portfolio",
   "private": true,
   "version": "0.1.0",
+  "description": "Portfolio profesional de Ingeniería en Desarrollo de Software, construido con Vue 3 y TypeScript.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cruzjeff225/professional-portfolio.git"
+  },
   "type": "module",
+  "engines": {
+    "node": ">=20.19.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",

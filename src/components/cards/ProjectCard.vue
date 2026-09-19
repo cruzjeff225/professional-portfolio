@@ -76,9 +76,6 @@ defineProps<{ project: Project }>()
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }
 
 .project-card__links {

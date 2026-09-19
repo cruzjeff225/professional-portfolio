@@ -19,7 +19,7 @@ secciones con contenido placeholder) y después se incorpora la información rea
 | 5    | Estructura de secciones con placeholders | Completa  |
 | 6    | Responsive, UX y accesibilidad           | Completa  |
 | 7    | Animaciones                              | Completa  |
-| 8    | Refinamiento                             | Pendiente |
+| 8    | Refinamiento                             | Completa  |
 | 9    | Contenido real                           | Pendiente |
 | 10   | SEO y deployment                         | Pendiente |
 
@@ -90,7 +90,7 @@ src/
 
 ## Próximas fases
 
-Refinamiento de código, UX/UI, rendimiento y accesibilidad (Fase 8).
+Contenido real (Fase 9) y SEO, Open Graph, favicon definitivo y deployment (Fase 10).
 
 ## Contenido
 
@@ -114,6 +114,20 @@ Solo hay movimiento donde aporta feedback o comprensión: aparición gradual de 
 scroll (`v-reveal`, un único `IntersectionObserver` compartido), entrada escalonada del hero y
 dibujo del esquema de datos. Todo vive bajo `prefers-reduced-motion: no-preference`; con movimiento
 reducido el contenido se muestra directamente, sin estados ocultos.
+
+## Calidad y rendimiento
+
+Lighthouse sobre el build de producción (127 KiB transferidos en total):
+
+| Categoría        | Móvil | Escritorio |
+| ---------------- | ----- | ---------- |
+| Rendimiento      | 99    | 100        |
+| Accesibilidad    | 100   | 100        |
+| Buenas prácticas | 100   | 100        |
+| SEO              | 82    | 82         |
+
+CLS 0 y LCP de 1,7 s en móvil con red lenta simulada. El SEO restante (meta descripción y
+`robots.txt`) se completa en la Fase 10. `npm audit` sin vulnerabilidades.
 
 ## Accesibilidad
 

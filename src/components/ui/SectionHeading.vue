@@ -9,7 +9,7 @@ withDefaults(
     description?: string
     align?: 'start' | 'center'
   }>(),
-  { id: undefined, eyebrow: undefined, description: undefined, align: 'start' },
+  { align: 'start' },
 )
 </script>
 

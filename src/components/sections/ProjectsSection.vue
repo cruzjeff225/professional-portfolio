@@ -38,4 +38,10 @@ import { vReveal } from '@/directives/reveal'
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+@media (min-width: 64rem) {
+  .projects {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 </style>

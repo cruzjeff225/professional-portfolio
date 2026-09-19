@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, useId } from 'vue'
+import { onBeforeUnmount, onMounted, ref, useId } from 'vue'
 import AppIcon from '@/components/ui/AppIcon.vue'
 import IconButton from '@/components/ui/IconButton.vue'
 import type { NavItem } from '@/types/nav'
@@ -9,9 +9,14 @@ defineProps<{
   activeId?: string
 }>()
 
+// Debe coincidir con el breakpoint en el que AppHeader muestra la navegación de escritorio.
+const DESKTOP_MEDIA_QUERY = '(min-width: 64rem)'
+
 const isOpen = ref(false)
 const panelId = useId()
+const root = ref<HTMLElement | null>(null)
 const toggle = ref<InstanceType<typeof IconButton> | null>(null)
+let desktopQuery: MediaQueryList | undefined
 
 function close(): void {
   isOpen.value = false
@@ -22,10 +27,38 @@ function closeAndRestoreFocus(): void {
   close()
   ;(toggle.value?.$el as HTMLElement | undefined)?.focus()
 }
+
+function isOutside(target: EventTarget | null): boolean {
+  return target instanceof Node && !root.value?.contains(target)
+}
+
+// Evita que el foco pase a contenido tapado por el panel abierto.
+function onFocusOut(event: FocusEvent): void {
+  if (isOutside(event.relatedTarget)) close()
+}
+
+function onPointerDown(event: PointerEvent): void {
+  if (isOpen.value && isOutside(event.target)) close()
+}
+
+function onBreakpointChange(event: MediaQueryListEvent): void {
+  if (event.matches) close()
+}
+
+onMounted(() => {
+  document.addEventListener('pointerdown', onPointerDown)
+  desktopQuery = window.matchMedia(DESKTOP_MEDIA_QUERY)
+  desktopQuery.addEventListener('change', onBreakpointChange)
+})
+
+onBeforeUnmount(() => {
+  document.removeEventListener('pointerdown', onPointerDown)
+  desktopQuery?.removeEventListener('change', onBreakpointChange)
+})
 </script>
 
 <template>
-  <div class="mobile-menu" @keydown.esc="closeAndRestoreFocus">
+  <div ref="root" class="mobile-menu" @keydown.esc="closeAndRestoreFocus" @focusout="onFocusOut">
     <IconButton
       ref="toggle"
       :aria-expanded="isOpen"

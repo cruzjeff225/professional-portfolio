@@ -17,7 +17,7 @@ secciones con contenido placeholder) y después se incorpora la información rea
 | 3    | Design system (tokens, Light/Dark)       | Completa  |
 | 4    | Componentes reutilizables                | Completa  |
 | 5    | Estructura de secciones con placeholders | Completa  |
-| 6    | Responsive, UX y accesibilidad           | Pendiente |
+| 6    | Responsive, UX y accesibilidad           | Completa  |
 | 7    | Animaciones                              | Pendiente |
 | 8    | Refinamiento                             | Pendiente |
 | 9    | Contenido real                           | Pendiente |
@@ -89,7 +89,7 @@ src/
 
 ## Próximas fases
 
-Revisión responsive y de accesibilidad (Fase 6), animaciones sutiles (Fase 7) y refinamiento.
+Animaciones sutiles (Fase 7) y refinamiento (Fase 8).
 
 ## Contenido
 
@@ -106,3 +106,13 @@ componentes.
   elección en `localStorage`. Un script inline en `index.html` evita el parpadeo inicial.
 - **Breakpoints** (mobile-first): 480, 768, 1024 y 1280 px (documentados en `tokens.css`).
 - Soporte de `prefers-reduced-motion` desde la base de estilos.
+
+## Accesibilidad
+
+- HTML semántico: landmarks, secciones etiquetadas, jerarquía de encabezados y enlace "Saltar al
+  contenido".
+- Navegación completa por teclado con foco visible; el menú móvil se cierra con Escape, al tabular
+  fuera, al pulsar fuera y al llegar al breakpoint de escritorio.
+- Auditoría con axe-core (WCAG 2.2 AA + buenas prácticas) sin violaciones en Light y Dark, a 320 px y
+  con el menú abierto.
+- Sin desbordamiento horizontal desde 320 px.

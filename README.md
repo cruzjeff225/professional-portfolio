@@ -16,7 +16,7 @@ secciones con contenido placeholder) y después se incorpora la información rea
 | 2    | Configuración del proyecto               | Completa  |
 | 3    | Design system (tokens, Light/Dark)       | Completa  |
 | 4    | Componentes reutilizables                | Completa  |
-| 5    | Estructura de secciones con placeholders | Pendiente |
+| 5    | Estructura de secciones con placeholders | Completa  |
 | 6    | Responsive, UX y accesibilidad           | Pendiente |
 | 7    | Animaciones                              | Pendiente |
 | 8    | Refinamiento                             | Pendiente |
@@ -68,9 +68,10 @@ src/
 │   ├── ui/          Primitivas (AppButton, AppBadge, AppIcon, IconButton, SectionHeading)
 │   ├── layout/      AppHeader, SectionContainer (y footer)
 │   ├── navigation/  NavPill, MobileMenu y ThemeToggle
-│   ├── cards/       Componentes de dominio (SkillGroup, ProjectCard)
-│   └── sections/    Secciones de la página
-├── composables/     Lógica reutilizable (useTheme, useScrollSpy, useReveal)
+│   ├── cards/       Componentes de dominio (SkillGroup, ProjectCard, Timeline)
+│   ├── sections/    Hero, Sobre mí, Habilidades, Proyectos, Trayectoria y Contacto
+│   └── visuals/     Elementos gráficos propios (SchemaDiagram)
+├── composables/     Lógica reutilizable (useTheme, useScrollSpy)
 ├── data/            Contenido desacoplado de los componentes
 ├── types/           Interfaces y tipos
 ├── styles/          Tokens, base y temas
@@ -88,8 +89,13 @@ src/
 
 ## Próximas fases
 
-Secciones con contenido placeholder (Hero, Sobre mí, Proyectos, Trayectoria, Contacto, Footer) y el
-scroll spy de la navegación.
+Revisión responsive y de accesibilidad (Fase 6), animaciones sutiles (Fase 7) y refinamiento.
+
+## Contenido
+
+Toda la información vive en `src/data/` con tipos en `src/types/`. Los textos entre corchetes
+(`[Nombre]`, `[Proyecto 1]`...) son placeholders que se sustituyen en la Fase 9 sin tocar los
+componentes.
 
 ## Design system
 

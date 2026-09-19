@@ -28,6 +28,13 @@ export const icons = {
       'm22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7',
     ],
   },
+  lock: {
+    variant: 'stroke',
+    paths: [
+      'M5 11h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1z',
+      'M8 11V7a4 4 0 0 1 8 0v4',
+    ],
+  },
   'arrow-right': { variant: 'stroke', paths: ['M5 12h14', 'm12 5 7 7-7 7'] },
   'arrow-up-right': { variant: 'stroke', paths: ['M7 17 17 7', 'M7 7h10v10'] },
   github: {

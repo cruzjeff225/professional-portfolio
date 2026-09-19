@@ -1,14 +1,18 @@
 <script setup lang="ts">
-defineProps<{
-  id?: string
-  eyebrow?: string
-  title: string
-  description?: string
-}>()
+withDefaults(
+  defineProps<{
+    id?: string
+    eyebrow?: string
+    title: string
+    description?: string
+    align?: 'start' | 'center'
+  }>(),
+  { id: undefined, eyebrow: undefined, description: undefined, align: 'start' },
+)
 </script>
 
 <template>
-  <header class="section-heading">
+  <header class="section-heading" :class="{ 'section-heading--center': align === 'center' }">
     <p v-if="eyebrow" class="section-heading__eyebrow">{{ eyebrow }}</p>
     <h2 :id="id">{{ title }}</h2>
     <p v-if="description" class="section-heading__description">{{ description }}</p>
@@ -20,6 +24,11 @@ defineProps<{
   display: grid;
   gap: var(--space-3);
   max-width: 40rem;
+}
+
+.section-heading--center {
+  margin-inline: auto;
+  text-align: center;
 }
 
 .section-heading__eyebrow {

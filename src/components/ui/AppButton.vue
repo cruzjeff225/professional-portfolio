@@ -10,7 +10,6 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   variant: 'primary',
-  href: undefined,
   external: false,
   type: 'button',
 })
@@ -35,7 +34,7 @@ const linkAttrs = computed(() =>
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
-  min-height: 2.75rem;
+  min-height: var(--size-control);
   padding: 0 var(--space-6);
   border: 1px solid transparent;
   border-radius: var(--radius-full);

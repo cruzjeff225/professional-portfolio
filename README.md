@@ -18,7 +18,7 @@ secciones con contenido placeholder) y después se incorpora la información rea
 | 4    | Componentes reutilizables                | Completa  |
 | 5    | Estructura de secciones con placeholders | Completa  |
 | 6    | Responsive, UX y accesibilidad           | Completa  |
-| 7    | Animaciones                              | Pendiente |
+| 7    | Animaciones                              | Completa  |
 | 8    | Refinamiento                             | Pendiente |
 | 9    | Contenido real                           | Pendiente |
 | 10   | SEO y deployment                         | Pendiente |
@@ -72,6 +72,7 @@ src/
 │   ├── sections/    Hero, Sobre mí, Habilidades, Proyectos, Trayectoria y Contacto
 │   └── visuals/     Elementos gráficos propios (SchemaDiagram)
 ├── composables/     Lógica reutilizable (useTheme, useScrollSpy)
+├── directives/      Directivas (v-reveal)
 ├── data/            Contenido desacoplado de los componentes
 ├── types/           Interfaces y tipos
 ├── styles/          Tokens, base y temas
@@ -89,7 +90,7 @@ src/
 
 ## Próximas fases
 
-Animaciones sutiles (Fase 7) y refinamiento (Fase 8).
+Refinamiento de código, UX/UI, rendimiento y accesibilidad (Fase 8).
 
 ## Contenido
 
@@ -106,6 +107,13 @@ componentes.
   elección en `localStorage`. Un script inline en `index.html` evita el parpadeo inicial.
 - **Breakpoints** (mobile-first): 480, 768, 1024 y 1280 px (documentados en `tokens.css`).
 - Soporte de `prefers-reduced-motion` desde la base de estilos.
+
+## Animaciones
+
+Solo hay movimiento donde aporta feedback o comprensión: aparición gradual de las secciones al hacer
+scroll (`v-reveal`, un único `IntersectionObserver` compartido), entrada escalonada del hero y
+dibujo del esquema de datos. Todo vive bajo `prefers-reduced-motion: no-preference`; con movimiento
+reducido el contenido se muestra directamente, sin estados ocultos.
 
 ## Accesibilidad
 

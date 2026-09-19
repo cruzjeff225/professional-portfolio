@@ -1,0 +1,16 @@
+/*
+ * Efectos de movimiento. Todo vive bajo no-preference: con prefers-reduced-motion
+ * el contenido se muestra directamente, sin estado oculto ni transición.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal-effect='fade'] {
+    transition:
+      opacity var(--duration-slow) var(--ease-out) var(--reveal-delay, 0ms),
+      transform var(--duration-slow) var(--ease-out) var(--reveal-delay, 0ms);
+  }
+
+  [data-reveal-effect='fade'][data-reveal='pending'] {
+    opacity: 0;
+    transform: translateY(var(--space-4));
+  }
+}

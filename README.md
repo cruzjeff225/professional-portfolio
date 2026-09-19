@@ -15,7 +15,7 @@ secciones con contenido placeholder) y después se incorpora la información rea
 | 1    | Análisis y planificación                 | Completa  |
 | 2    | Configuración del proyecto               | Completa  |
 | 3    | Design system (tokens, Light/Dark)       | Completa  |
-| 4    | Componentes reutilizables                | Pendiente |
+| 4    | Componentes reutilizables                | Completa  |
 | 5    | Estructura de secciones con placeholders | Pendiente |
 | 6    | Responsive, UX y accesibilidad           | Pendiente |
 | 7    | Animaciones                              | Pendiente |
@@ -65,9 +65,9 @@ npm run dev
 src/
 ├── assets/          Fuentes e imágenes
 ├── components/
-│   ├── ui/          Primitivas (Button, Badge, SectionHeading)
-│   ├── layout/      Header, footer y contenedores
-│   ├── navigation/  Navegación, menú móvil y selector de tema
+│   ├── ui/          Primitivas (AppButton, AppBadge, AppIcon, IconButton, SectionHeading)
+│   ├── layout/      AppHeader, SectionContainer (y footer)
+│   ├── navigation/  NavPill, MobileMenu y ThemeToggle
 │   ├── cards/       Componentes de dominio (SkillGroup, ProjectCard)
 │   └── sections/    Secciones de la página
 ├── composables/     Lógica reutilizable (useTheme, useScrollSpy, useReveal)
@@ -88,8 +88,8 @@ src/
 
 ## Próximas fases
 
-Componentes reutilizables (Button, Badge, SectionHeading, navegación) y secciones con contenido
-placeholder.
+Secciones con contenido placeholder (Hero, Sobre mí, Proyectos, Trayectoria, Contacto, Footer) y el
+scroll spy de la navegación.
 
 ## Design system
 

@@ -1,0 +1,65 @@
+/*
+ * Tokens semánticos por tema. Cada tema está diseñado por separado:
+ * el dark prioriza bordes sobre sombras y usa un acento más claro para mantener el contraste.
+ * Todos los pares de texto cumplen WCAG AA (>= 4.5:1).
+ */
+:root,
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --color-bg: #fafaf9;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f3f4f6;
+
+  --color-text: #111827;
+  --color-text-muted: #5b6472;
+
+  --color-border: #e5e7eb;
+  --color-border-strong: #7f8899;
+
+  --color-primary: #3556d8;
+  --color-primary-hover: #2a46b8;
+  --color-primary-soft: #eef1fd;
+  --color-on-primary: #ffffff;
+
+  --color-secondary: #ffffff;
+  --color-secondary-hover: #f3f4f6;
+  --color-on-secondary: #111827;
+
+  --color-success: #15803d;
+  --color-warning: #b45309;
+  --color-error: #b91c1c;
+
+  --shadow-sm: 0 1px 2px rgb(17 24 39 / 0.06);
+  --shadow-md: 0 8px 24px rgb(17 24 39 / 0.08);
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --color-bg: #0b0f19;
+  --color-surface: #121826;
+  --color-surface-muted: #182033;
+
+  --color-text: #e6e9f0;
+  --color-text-muted: #9aa3b2;
+
+  --color-border: #1f2937;
+  --color-border-strong: #5f6b82;
+
+  --color-primary: #7c93ff;
+  --color-primary-hover: #9badff;
+  --color-primary-soft: #1a2244;
+  --color-on-primary: #0b0f19;
+
+  --color-secondary: #121826;
+  --color-secondary-hover: #182033;
+  --color-on-secondary: #e6e9f0;
+
+  --color-success: #4ade80;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 8px 24px rgb(0 0 0 / 0.4);
+}

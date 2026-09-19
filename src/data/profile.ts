@@ -4,7 +4,7 @@ export const profile: Profile = {
   name: '[Nombre]',
   role: '[Rol profesional]',
   tagline: '[Descripción profesional breve: qué hago y qué valor aporto]',
-  highlights: ['Ingeniería en Desarrollo de Software · 5.º año', 'Gestión de datos SQL'],
+  highlights: ['Ingeniería en Desarrollo de Software', 'Cursando 5.º año', 'Gestión de datos SQL'],
   summary: [
     '[Párrafo 1: quién soy y qué me motiva]',
     '[Párrafo 2: enfoque profesional y objetivos]',

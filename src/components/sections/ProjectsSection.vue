@@ -3,6 +3,7 @@ import ProjectCard from '@/components/cards/ProjectCard.vue'
 import SectionContainer from '@/components/layout/SectionContainer.vue'
 import SectionHeading from '@/components/ui/SectionHeading.vue'
 import { projects } from '@/data/projects'
+import { vReveal } from '@/directives/reveal'
 </script>
 
 <template>
@@ -15,7 +16,12 @@ import { projects } from '@/data/projects'
     />
 
     <div class="projects">
-      <ProjectCard v-for="project in projects" :key="project.id" :project="project" />
+      <ProjectCard
+        v-for="(project, index) in projects"
+        :key="project.id"
+        v-reveal="(index % 2) * 80"
+        :project="project"
+      />
     </div>
   </SectionContainer>
 </template>

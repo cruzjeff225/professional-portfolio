@@ -3,6 +3,7 @@ import Timeline from '@/components/cards/Timeline.vue'
 import SectionContainer from '@/components/layout/SectionContainer.vue'
 import SectionHeading from '@/components/ui/SectionHeading.vue'
 import { timeline } from '@/data/timeline'
+import { vReveal } from '@/directives/reveal'
 
 const education = timeline.filter((entry) => entry.type === 'education')
 const experience = timeline.filter((entry) => entry.type === 'experience')
@@ -13,11 +14,11 @@ const experience = timeline.filter((entry) => entry.type === 'experience')
     <SectionHeading id="path-title" eyebrow="04 / Trayectoria" title="Formación y experiencia" />
 
     <div class="path">
-      <div>
+      <div v-reveal>
         <h3 class="path__title">Formación</h3>
         <Timeline :entries="education" />
       </div>
-      <div>
+      <div v-reveal="100">
         <h3 class="path__title">Experiencia</h3>
         <Timeline :entries="experience" />
       </div>

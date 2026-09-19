@@ -17,7 +17,6 @@ withDefaults(defineProps<{ variant?: 'neutral' | 'primary' }>(), { variant: 'neu
   font-size: var(--text-xs);
   font-weight: var(--weight-medium);
   line-height: var(--leading-snug);
-  white-space: nowrap;
 }
 
 .badge--neutral {
